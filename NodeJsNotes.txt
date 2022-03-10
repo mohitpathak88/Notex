@@ -1,0 +1,72 @@
+=> NodeJS:
+Every file in a node application is called a module.
+And there is always a main module. Here app.js and server.js are the main module
+
+Companies that uses Node - Netflix, NASA, PayPal, LinkedIn, Walmart, Uber, Twitter, Yahoo, eBay, GoDaddy, IMDb
+
+Async form is process of doing multiple tasks one at a time without blocking others. 
+Event Arguments? [To give info along with the event]
+Extending Events and in other modules.
+
+In real world we dont use http module for backend because we have to add every routes linearly for every web pages
+Hence, instead we use a framework called express to give a clean structure for handling various routes
+
+
+NPM is used to install packages.
+Nodemon is a global package that automatically updates and runs the server without manually restarting the server
+For installing packages locally we need to create a package.json file by command "npm init", and then accepting the default values.
+
+Dependencies in package.json lists all the packages installed in this project. A simple "npm install" command would install all the 
+packages automatically
+
+
+=>Express:
+Whenever we send a request in the browser, express will run through the code top to bottom through each get handlers, and if it finds a 
+match then the express no longer go through others and the search will stop. If it doesnt not finds a match, the ".use" function says to 
+use this function for every incoming request. For passing the request from .use to any other get function, we use "next()"
+
+npm install ejs
+To add dynamic data like data from database to out html, we use view engines and its tag - <%   %>
+When we are outputting a single value, we need to put '='
+
+For importing same part of html code in various html files, we use partials,
+ hence instead of updating the same code in various files, we update the code in a single file
+
+=>Middlewares:
+They are the code which runs on the server between the requests and the response. Eg: get handlers
+
+If we have to add static files such as images and css to our project, we cannot access it directly in our project, we need a static
+Middleware to make those files public. This middleware already comes in express
+
+Mongoose is package which allows to connect and communicate with mongodb database
+
+
+=> Schema and models in databases:
+Schema defines the structure/datatype of database that we are gonna store whereas model surrounds the schema and provides us an interface of
+communicating with database. The model have both static and instance method which allows us to save, get and delete the data
+
+
+=> Types of request:
+1) GET: request to get a resource
+2) POST: request to create new data
+    Working: The Post request is executed by first taking the data entered in the frontend by user, then we hand we take all the data, create a 
+    blog instance using the blog model we created, add the data to the instance and save the data in the database 
+3) DELETE : request to delete data
+4) PUT : request to update data
+
+
+=> Route Parameters:
+They are the part of the routes that are variable. Eg: localhost:3000/blogs/:id, localhost:3000/blogs/12345, etc (Here last parts are variables)
+thus we need to extract this variable and then we can query the database with that variable. We need express to extract the parameter to use it
+
+
+=>Express router and MVC:
+To split our code into different files.
+Express routers are used to manage our routes more efficiently. It allows to extract the routes into a different file, handle them and then use
+ those in main model by exporting them.
+Hence, in this project we have used "blogRoutes.js"  for handling all the blog routes
+
+
+=>MVC (Model, View, Controller):
+It is a way of structuring code and files.
+Controllers form the link between our models and views, They get the data from models and pass it on to view

@@ -1,0 +1,37 @@
+<html lang="en">
+<%- include("./partials/header.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="details content">
+    <h2><%= blog.title %></h2>      <!-- Acessing the title property of the blog-->
+    <div class="content">
+      <p><%= blog.body %></p>       <!-- Acessing and outputting the blog body-->
+    </div>
+    <a class="delete" data-doc="<%= blog._id %>">
+    <img src="/trashcan.svg" alt="delete icon"></a>    <!-- Data attribute- Basically helps in creating our own attributes, i.e. "doc"
+    Here the Blog id used is the id we want to delete-->
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+
+<script>                                                             //Any script in the script tag runs on a browser not on server
+    const trashcan = document.querySelector('a.delete');            //To grab the element used in line 12
+    trashcan.addEventListener('click', (e) => {                     //Using event listener so that we know when a user clicks on this. Taking event object
+                                                                     // as the parameter which here is "e". Now inside we want to send a delete request to the server by using the fetch api to use that
+      const endpoint = `/blogs/${trashcan.dataset.doc}`;             //`indicates a template string`... The curly bracket part indicates the id of blog
+    //Sending a delete request from a Ajax request
+      fetch(endpoint, {                                               //Fetching the delete request for the endpoint
+        method: 'DELETE',                                            //Specifying the delete request
+      })
+      .then(response => response.json())                              //When the task is done, it is gonna fire the then method. It has the json data that came back to us
+                                                                    //response.js parse into a javascript object and then we get the data which we use below.
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));
+    });
+    
+  </script>
+
+</body>
+</html>
