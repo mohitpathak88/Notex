@@ -20,7 +20,7 @@
     const trashcan = document.querySelector('a.delete');            //To grab the element used in line 12
     trashcan.addEventListener('click', (e) => {                     //Using event listener so that we know when a user clicks on this. Taking event object
                                                                      // as the parameter which here is "e". Now inside we want to send a delete request to the server by using the fetch api to use that
-      const endpoint = `/blogs/${trashcan.dataset.doc}`;             //`indicates a template string`... The curly bracket part indicates the id of blog
+      const endpoint = `/notes/${trashcan.dataset.doc}`;             //`indicates a template string`... The curly bracket part indicates the id of blog
     //Sending a delete request from a Ajax request
       fetch(endpoint, {                                               //Fetching the delete request for the endpoint
         method: 'DELETE',                                            //Specifying the delete request

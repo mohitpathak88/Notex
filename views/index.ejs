@@ -5,18 +5,18 @@
     <%- include("./partials/nav.ejs") %>
 
     <div class="blogs content">
-     <h2>All Blogs</h2>     
+     <h2>All Notes</h2>     
     <!-- We have access to every part of the blog including the id in ind-->
-     <% if (blogs.length > 0) { %>
-        <% blogs.forEach(blog => { %>
-        <a class="single" href="/blogs/<%= blog._id %>">    <!-- So that each blog displayed opens up a different route with its own id as
+     <% if (notes.length > 0) { %>
+        <% notes.forEach(note => { %>
+        <a class="single" href="/notes/<%= note._id %>">    <!-- So that each blog displayed opens up a different route with its own id as
            the route parameter-->
-          <h3 class="title"><%= blog.title %></h3>
-          <p class="snippet"><%= blog.snippet %></p>
+          <h3 class="title"><%= note.title %></h3>
+          <p class="snippet"><%= note.snippet %></p>
         <% }) %>
         </a>
       <% } else { %>
-        <p>There are no blogs to display...</p>
+        <p>There are no notes to display...</p>
       <% } %>
     </div>
 

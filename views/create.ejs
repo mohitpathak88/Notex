@@ -8,16 +8,14 @@
     <%- include("./partials/nav.ejs") %>
     
   <div class="create-blog content">
-    <form action="/blogs" method="POST">  <!--Action attribute which is basically a value of where we have to send below data to, i.e. "blogs"
-     Method is the type of request method-->
-      <label for="title">Blog title:</label>
-      <input type="text" id="title" name="title" required>  <!-- The name attribute sends the data to the server to its corresponding field,
-       means the data written on the title field of html by the user will be saved in the title field of the database-->
-      <label for="snippet">Blog snippet:</label>
+    <form action="/notes" method="POST">
+      <label for="title">Note title:</label>
+      <input type="text" id="title" name="title" required>
+      <label for="snippet">Note snippet:</label>
       <input type="text" id="snippet" name="snippet" required>
-      <label for="body">Blog body:</label>
+      <label for="body">Note:</label>
       <textarea id="body" name="body" required></textarea>
-      <button>Submit</button>   <!-- when we click on submit, it is gonna send a post request to the above url-->
+      <button>Submit</button>
     </form>
   </div>
   <%- include('./partials/footer.ejs') %> 
